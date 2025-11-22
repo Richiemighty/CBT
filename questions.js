@@ -23,7 +23,7 @@ Non-stoichiometric compounds are a special case (in inorganic chemistry) that vi
 const questions = [
   {
     number: 1,
-    question: "The lady likes singing and cooking.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The lady likes singing and cooking.",
       "B. The lady likes singing and to cook.",
@@ -35,7 +35,7 @@ const questions = [
 
   {
     number: 2,
-    question: "Dr Ogunmola admires people who have character and integrity.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. Dr Ogunmola admires people with character and who seem to have integrity.",
       "B. Dr Ogunmola admires people who have character as well as people with integrity.",
@@ -47,7 +47,7 @@ const questions = [
 
   {
     number: 3,
-    question: "I like listening, speaking, reading and writing.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. I like to listen, to speak, to read and to do some writing.",
       "B. I like listening, speaking, reading and writing.",
@@ -59,8 +59,7 @@ const questions = [
 
   {
     number: 4,
-    question:
-      "He was bruised for our iniquities and crushed for our transgressions.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. He was bruised for our iniquities and crushed for our transgressions.",
       "B. He showed forgiveness for our iniquities; he was crushed for our transgressions.",
@@ -72,7 +71,7 @@ const questions = [
 
   {
     number: 5,
-    question: "The writing of a good student should be precise and original.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The writing of a good student should be precise and original.",
       "B. The writing of a good student should be precise and show originality.",
@@ -84,8 +83,7 @@ const questions = [
 
   {
     number: 6,
-    question:
-      "The king was flattered by the chiefs, praised by his family but hated by the people.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The king was flattered by the chiefs, his family praised him but the people hated him.",
       "B. The king was flattered by the chiefs, praised by his family but the people hated him.",
@@ -97,7 +95,7 @@ const questions = [
 
   {
     number: 7,
-    question: "Industry is good but laziness is bad.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. Industry is good but to be lazy is bad.",
       "B. Industry is good but laziness is bad.",
@@ -109,8 +107,7 @@ const questions = [
 
   {
     number: 8,
-    question:
-      "Yesterday, I went to school, shopped at Idea Konsult and lunched at Tantalizers.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. Yesterday, I went to school, shopped at Idea Konsult and lunched at Tantalizers.",
       "B. Yesterday, I went to school, shopping at Idea Konsult and lunched at Tantalizers.",
@@ -122,8 +119,7 @@ const questions = [
 
   {
     number: 9,
-    question:
-      "The prophet predicted that he would become governor, meet a beautiful stranger and that his first son would become president.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The prophet predicted that he would become governor; that he would meet a beautiful stranger and that his first son would become president.",
       "B. The prophet predicted that he would become governor; a beautiful stranger will meet him and that his first son would become president.",
@@ -135,8 +131,7 @@ const questions = [
 
   {
     number: 10,
-    question:
-      "I was writing the letter while she was laying the table for breakfast.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. I was writing the letter when she lays the table for breakfast.",
       "B. I was writing the letter when she laid the table for breakfast.",
@@ -148,8 +143,7 @@ const questions = [
 
   {
     number: 11,
-    question:
-      "The girl was asked to buy some fish and then to return to the village.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The girl was asked to buy some fish and that she should return to the village.",
       "B. The girl was asked to buy some fish and then to return to the village.",
@@ -161,7 +155,7 @@ const questions = [
 
   {
     number: 12,
-    question: "Saying is one thing; doing is another.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. Saying is one thing; to do it is another.",
       "B. Saying is one thing; doing is another.",
@@ -173,7 +167,7 @@ const questions = [
 
   {
     number: 13,
-    question: "What Ade needs is a doctor and a rest cure.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. What Ade needs is a doctor and rest cure.",
       "B. What Ade needs is a doctor and to rest cure.",
@@ -185,8 +179,7 @@ const questions = [
 
   {
     number: 14,
-    question:
-      "He believes that courage is better than fear, and that faith is truer than doubt.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. He believes that courage is better than fear, and that faith is truer than doubt.",
       "B. He believes that courage is better than fearing and that faith is truer than doubt.",
@@ -198,8 +191,7 @@ const questions = [
 
   {
     number: 15,
-    question:
-      "The man was not only a skilful politician but also an able artist.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The man was not only a politician in a skilful way but also an able artist.",
       "B. The man was not only a skilful politician but also an art man.",
@@ -211,8 +203,7 @@ const questions = [
 
   {
     number: 16,
-    question:
-      "Bayo wants to be either a business tycoon or an actor when he grows up.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. When Bayo grows up, either he wants to be a business tycoon or actor.",
       "B. Bayo wants to be either a business tycoon or an actor when he grows up.",
@@ -224,7 +215,7 @@ const questions = [
 
   {
     number: 17,
-    question: "They could not decide whether to go to church or to travel.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. They could not decide whether to go to church or travelling.",
       "B. They could not decide whether to go to church or to begin travelling.",
@@ -236,7 +227,7 @@ const questions = [
 
   {
     number: 18,
-    question: "She swam swiftly and gracefully.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. She swam with swiftness and gracefully.",
       "B. She swam swiftly and gracefully.",
@@ -248,8 +239,7 @@ const questions = [
 
   {
     number: 19,
-    question:
-      "The man closed the door, opened the windows and threw himself on the couch.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The man closed the door, opened the windows and threw himself on the couch.",
       "B. The man closed the door, opened the windows and was wanting to throw himself on the couch.",
@@ -261,8 +251,7 @@ const questions = [
 
   {
     number: 20,
-    question:
-      "The manager was asked to write his report quickly, accurately and thoroughly.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The manager was asked to write his report quickly, accurately and with thoroughness.",
       "B. The manager was asked to write his report quickly, accurately and thoroughly.",
@@ -274,8 +263,7 @@ const questions = [
 
   {
     number: 21,
-    question:
-      "The woman advised the boys to get a lot of sleep and to eat little.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The woman advised the boys to get a lot of sleep and to eat little.",
       "B. The woman advised the boys to get a lot of sleep and that they should not eat much.",
@@ -287,8 +275,7 @@ const questions = [
 
   {
     number: 22,
-    question:
-      "The dictionary can be used to find word meanings, pronunciations and spellings.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. The dictionary can be used to find word meanings, pronunciations and looking up spellings.",
       "B. The dictionary can be used to find: word meanings, checking how to pronounce words and spellings.",
@@ -300,8 +287,7 @@ const questions = [
 
   {
     number: 23,
-    question:
-      "Mr Johnson bought a car for his wife and gave it to her on her birthday.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. Mr Johnson bought a car for his wife and gave it to her on her birthday.",
       "B. Mr Johnson bought a car for his wife to give her on her birthday.",
@@ -313,7 +299,7 @@ const questions = [
 
   {
     number: 24,
-    question: "He was given the flag after he had taken the oath.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. He was given the flag after he was taking the oath.",
       "B. He was given the flag after he had taken the oath.",
@@ -325,8 +311,7 @@ const questions = [
 
   {
     number: 25,
-    question:
-      "James loves to eat rice on Sundays and to eat beans only on Saturdays.",
+    question: "The most standard and acceptable structure",
     options: [
       "A. James loves to eat rice on Sundays and to eat beans only on Saturdays.",
       "B. James loves eating rice on Sundays and to eat beans only on Saturdays.",
@@ -521,7 +506,7 @@ const questions = [
 
   {
     number: 41,
-    question: "I had a kickback for the service.",
+    question: "Choose the most appropriate expression",
     options: [
       "A. I had a dash for the service.",
       "B. I had a kickback for the service.",
@@ -557,7 +542,7 @@ const questions = [
 
   {
     number: 44,
-    question: "Discourage drinking spirits during working hours.",
+    question: "Choose the most appropriate expression",
     options: [
       "A. Discourage drinking hot drinks during working hours.",
       "B. Discourage drinking spirits during working hours.",
@@ -593,7 +578,7 @@ const questions = [
 
   {
     number: 47,
-    question: "Some of our students were arrested at the pub.",
+    question: "Choose the most appropriate expression.",
     options: [
       "A. Some of our students were arrested at the beer parlour.",
       "B. Some of our students were arrested at the pub.",
@@ -606,7 +591,7 @@ const questions = [
   {
     number: 48,
     question:
-      "The audience rose to their feet when the commissioner entered the hall.",
+      "Choose the most appropriate expression.",
     options: [
       "A. The audience rose on their feet when the commissioner entered the hall.",
       "B. The audience rose to their feet when the commissioner entered the hall.",
