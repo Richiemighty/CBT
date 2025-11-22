@@ -619,595 +619,133 @@
     }
         </style>
     </head>
-<body>
-    <div class="app-shell">
-        <!-- TOEFL-style top bar -->
-        <div class="top-bar">
-            <div class="brand">
-                <div class="brand-logo">EN</div>
-                <div class="brand-text">
-                    <h1>English Proficiency Test</h1>
-                    <span>Computer-Based Practice Exam</span>
+    <body>
+        <div class="app-shell">
+            <!-- TOEFL-style top bar -->
+            <div class="top-bar">
+                <div class="brand">
+                    <div class="brand-logo">EN</div>
+                    <div class="brand-text">
+                        <h1>English Proficiency Test</h1>
+                        <span>Computer-Based Practice Exam</span>
+                    </div>
+                </div>
+                <div class="top-right">
+                    <div class="candidate-name">
+                        Candidate:
+                        <strong id="candidateNameTop">—</strong>
+                    </div>
+                    <div class="timer-chip">
+                        <span class="timer-dot" id="timerDot"></span>
+                        <span id="timer">00:00</span>
+                    </div>
                 </div>
             </div>
-
-            <div class="top-right">
-                <div class="candidate-name">Candidate: <strong id="candidateNameTop">—</strong></div>
-                <div class="timer-chip">
-                    <span class="timer-dot" id="timerDot"></span>
-                    <span id="timer">00:00</span>
+            <div class="main-content">
+                <!-- WELCOME SCREEN -->
+                <div id="welcomeScreen" class="welcome-screen">
+                    <h2 class="welcome-title">Welcome to the English CBT</h2>
+                    <p class="welcome-subtitle">Provide your details to begin.</p>
+                    <div class="divider"></div>
+                    <p class="welcome-text">
+                        This practice exam evaluates your English grammar, vocabulary, sentence structure 
+                    and reading comprehension. Once you click
+                        <strong>Start Test</strong>
+                        , the timer begins.
+                    </p>
+                    <div class="form-group">
+                        <label for="studentName">Full Name</label>
+                        <input type="text" id="studentName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="timeSelect">Test Duration</label>
+                        <select id="timeSelect">
+                            <option value="30">30 minutes — 75 questions</option>
+                            <option value="60" selected>60 minutes — 150 questions</option>
+                        </select>
+                    </div>
+                    <button id="startBtn" class="start-btn">Start Test</button>
+                </div>
+                <!-- TEST AREA -->
+                <div id="testArea" class="test-area">
+                    <div class="test-header-row">
+                        <div class="section-label">English Proficiency</div>
+                        <div class="question-counter" id="questionCounter">Question 1 of 150</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text" id="questionText"></div>
+                        <div class="options-grid" id="optionsContainer"></div>
+                    </div>
+                    <div class="nav-bar">
+                        <div class="nav-left">
+                            <button id="prevBtn" class="btn btn-secondary">Previous</button>
+                            <span class="nav-info" id="answeredInfo"></span>
+                        </div>
+                        <div class="nav-right">
+                            <button id="nextBtn" class="btn btn-secondary">Next</button>
+                            <button id="submitBtn" class="btn btn-danger">Submit Test</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- RESULT SCREEN -->
+                <div id="resultScreen" class="result-screen">
+                    <h2 class="result-title">Test Completed</h2>
+                    <p class="result-subtitle">Your performance summary is shown below.</p>
+                    <div class="score-circle">
+                        <div class="score-inner">
+                            <div class="score-value" id="scoreDisplay">0%</div>
+                            <div class="score-label">Overall Score</div>
+                        </div>
+                    </div>
+                    <div class="result-details">
+                        <div class="result-row">
+                            <span>Name</span>
+                            <span id="resultName">—</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Total Questions</span>
+                            <span id="totalQuestions">0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Correct Answers</span>
+                            <span id="correctAnswers">0</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Time Taken</span>
+                            <span id="timeTaken">0m 0s</span>
+                        </div>
+                        <div class="result-row">
+                            <span>Proficiency</span>
+                            <span id="proficiencyTag">
+                                <span class="tag">—</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="result-actions">
+                        <button id="reviewBtn" class="start-btn">Review Mistakes</button>
+                        <button id="restartBtn" class="start-btn">Take Test Again</button>
+                    </div>
+                </div>
+                <!-- REVIEW SCREEN -->
+                <div id="reviewScreen" class="result-screen" style="display:none; text-align:left;">
+                    <h2 style="text-align:center; margin-bottom:10px;">Review Your Mistakes</h2>
+                    <p style="text-align:center; color:#666; margin-bottom:20px;">
+                        These are the questions you missed and their correct answers.
+                    </p>
+                    <div id="reviewList"></div>
+                    <button id="backToResultBtn" class="start-btn" style="margin-top:30px;">
+                        Back to Summary
+                    </button>
                 </div>
             </div>
         </div>
 
-        <div class="main-content">
-
-            <!-- WELCOME SCREEN -->
-            <div id="welcomeScreen" class="welcome-screen">
-                <h2 class="welcome-title">Welcome to the English CBT</h2>
-                <p class="welcome-subtitle">Provide your details to begin.</p>
-                <div class="divider"></div>
-
-                <p class="welcome-text">
-                    This practice exam evaluates your English grammar, vocabulary, sentence structure 
-                    and reading comprehension. Once you click <strong>Start Test</strong>, the timer begins.
-                </p>
-
-                <div class="form-group">
-                    <label for="studentName">Full Name</label>
-                    <input type="text" id="studentName" placeholder="Enter your name">
-                </div>
-
-                <div class="form-group">
-                    <label for="timeSelect">Test Duration</label>
-                    <select id="timeSelect">
-                        <option value="30">30 minutes — 75 questions</option>
-                        <option value="60" selected>60 minutes — 150 questions</option>
-                    </select>
-                </div>
-
-                <button id="startBtn" class="start-btn">Start Test</button>
-            </div>
-
-            <!-- TEST AREA -->
-            <div id="testArea" class="test-area">
-                <div class="test-header-row">
-                    <div class="section-label">English Proficiency</div>
-                    <div class="question-counter" id="questionCounter">Question 1 of 150</div>
-                </div>
-
-                <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
-
-                <div class="question-card">
-                    <div class="question-text" id="questionText"></div>
-                    <div class="options-grid" id="optionsContainer"></div>
-                </div>
-
-                <div class="nav-bar">
-                    <div class="nav-left">
-                        <button id="prevBtn" class="btn btn-secondary">Previous</button>
-                        <span class="nav-info" id="answeredInfo"></span>
-                    </div>
-
-                    <div class="nav-right">
-                        <button id="nextBtn" class="btn btn-secondary">Next</button>
-                        <button id="submitBtn" class="btn btn-danger">Submit Test</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RESULT SCREEN -->
-            <div id="resultScreen" class="result-screen">
-                <h2 class="result-title">Test Completed</h2>
-                <p class="result-subtitle">Your performance summary is shown below.</p>
-
-                <div class="score-circle">
-                    <div class="score-inner">
-                        <div class="score-value" id="scoreDisplay">0%</div>
-                        <div class="score-label">Overall Score</div>
-                    </div>
-                </div>
-
-                <div class="result-details">
-                    <div class="result-row"><span>Name</span><span id="resultName">—</span></div>
-                    <div class="result-row"><span>Total Questions</span><span id="totalQuestions">0</span></div>
-                    <div class="result-row"><span>Correct Answers</span><span id="correctAnswers">0</span></div>
-                    <div class="result-row"><span>Time Taken</span><span id="timeTaken">0m 0s</span></div>
-                    <div class="result-row"><span>Proficiency</span><span id="proficiencyTag"><span class="tag">—</span></span></div>
-                </div>
-
-                <div class="result-actions">
-                    <button id="reviewBtn" class="start-btn">Review Mistakes</button>
-                    <button id="restartBtn" class="start-btn">Take Test Again</button>
-                </div>
-            </div>
-
-            <!-- REVIEW SCREEN -->
-            <div id="reviewScreen" class="result-screen" style="display:none; text-align:left;">
-                <h2 style="text-align:center; margin-bottom:10px;">Review Your Mistakes</h2>
-                <p style="text-align:center; color:#666; margin-bottom:20px;">
-                    These are the questions you missed and their correct answers.
-                </p>
-
-                <div id="reviewList"></div>
-
-                <button id="backToResultBtn" class="start-btn" style="margin-top:30px;">
-                    Back to Summary
-                </button>
-            </div>
-        </div>
-    </div>
-
-
-
-
-        <script>
-    // --- Question generation (demo) ---
-    function generateQuestions(count) {
-      const questions = [];
-      const grammarQuestions = [
-        {
-          question: "Which sentence is grammatically correct?",
-          options: [
-            "She don't like apples.",
-            "She doesn't like apples.",
-            "She doesn't likes apples.",
-            "She don't likes apples."
-          ],
-          correct: 1
-        },
-        {
-          question: "Choose the correct word to complete the sentence: I'm looking forward _____ seeing you.",
-          options: ["to", "for", "at", "with"],
-          correct: 0
-        },
-        {
-          question: "Identify the correct passive form: They built this house in 1990.",
-          options: [
-            "This house was built in 1990.",
-            "This house is built in 1990.",
-            "This house built in 1990.",
-            "This house has built in 1990."
-          ],
-          correct: 0
-        },
-        {
-          question: "Select the correct sentence:",
-          options: [
-            "Neither of the boys are coming.",
-            "Neither of the boys is coming.",
-            "Neither of the boys were coming.",
-            "Neither of the boys have come."
-          ],
-          correct: 1
-        },
-        {
-          question: "Choose the correct preposition: I'm good _____ mathematics.",
-          options: ["at", "in", "on", "with"],
-          correct: 0
-        },
-        {
-          question: "Which sentence uses the correct verb tense?",
-          options: [
-            "I have seen that movie yesterday.",
-            "I saw that movie yesterday.",
-            "I see that movie yesterday.",
-            "I had seen that movie yesterday."
-          ],
-          correct: 1
-        }
-      ];
-
-      const vocabularyQuestions = [
-        {
-          question: "What is the synonym of 'benevolent'?",
-          options: ["Malevolent", "Kind", "Stingy", "Hostile"],
-          correct: 1
-        },
-        {
-          question: "What is the meaning of 'ephemeral'?",
-          options: ["Eternal", "Temporary", "Important", "Beautiful"],
-          correct: 1
-        },
-        {
-          question: "What is the antonym of 'diligent'?",
-          options: ["Hardworking", "Lazy", "Careful", "Intelligent"],
-          correct: 1
-        },
-        {
-          question: "What does 'ubiquitous' mean?",
-          options: ["Rare", "Everywhere", "Expensive", "Ancient"],
-          correct: 1
-        },
-        {
-          question: "Which word means 'to make worse'?",
-          options: ["Ameliorate", "Aggravate", "Alleviate", "Appreciate"],
-          correct: 1
-        }
-      ];
-
-      const spellingQuestions = [
-        {
-          question: "Which word is spelled correctly?",
-          options: ["Accomodate", "Acommodate", "Accommodate", "Acomodate"],
-          correct: 2
-        },
-        {
-          question: "Select the correctly spelled word:",
-          options: ["Embarrass", "Embarass", "Embarras", "Embaras"],
-          correct: 0
-        },
-        {
-          question: "Which spelling is correct?",
-          options: ["Maintenance", "Maintainance", "Maintanance", "Maintenence"],
-          correct: 0
-        }
-      ];
-
-      const readingQuestions = [
-        {
-          question: "Based on a typical passage, what is the author's main purpose?",
-          options: ["To entertain", "To inform", "To persuade", "To describe"],
-          correct: 1
-        },
-        {
-          question: "What can usually be inferred from a well-written text?",
-          options: [
-            "Explicit statements only",
-            "Hidden numerical data",
-            "Implied information and attitudes",
-            "Random unrelated details"
-          ],
-          correct: 2
-        }
-      ];
-
-      const allQuestions = [
-        ...grammarQuestions,
-        ...vocabularyQuestions,
-        ...spellingQuestions,
-        ...readingQuestions
-      ];
-
-      for (let i = 0; i < count; i++) {
-        const original = allQuestions[i % allQuestions.length];
-        questions.push({
-          question: original.question,
-          options: [...original.options],
-          correct: original.correct
-        });
-      }
-
-      return questions;
-    }
-
-    // --- DOM elements ---
-    const welcomeScreen = document.getElementById("welcomeScreen");
-    const testArea = document.getElementById("testArea");
-    const resultScreen = document.getElementById("resultScreen");
-
-    const startBtn = document.getElementById("startBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const submitBtn = document.getElementById("submitBtn");
-    const restartBtn = document.getElementById("restartBtn");
-
-    const timerElement = document.getElementById("timer");
-    const timerDot = document.getElementById("timerDot");
-    const questionCounter = document.getElementById("questionCounter");
-    const answeredInfo = document.getElementById("answeredInfo");
-    const questionText = document.getElementById("questionText");
-    const optionsContainer = document.getElementById("optionsContainer");
-    const progressBar = document.getElementById("progressBar");
-
-    const scoreDisplay = document.getElementById("scoreDisplay");
-    const resultName = document.getElementById("resultName");
-    const totalQuestions = document.getElementById("totalQuestions");
-    const correctAnswers = document.getElementById("correctAnswers");
-    const timeTaken = document.getElementById("timeTaken");
-    const proficiencyTag = document.getElementById("proficiencyTag");
-
-    const studentNameInput = document.getElementById("studentName");
-    const timeSelect = document.getElementById("timeSelect");
-    const candidateNameTop = document.getElementById("candidateNameTop");
-
-    // --- Test state ---
-    let currentQuestion = 0;
-    let userAnswers = [];
-    let timer;
-    let timeLeft;
-    let startTime;
-    let endTime;
-    let questions = [];
-
-    // Start test
-    startBtn.addEventListener("click", startTest);
-
-    function startTest() {
-      const studentName = studentNameInput.value.trim();
-      if (!studentName) {
-        alert("Please enter your full name before starting the test.");
-        return;
-      }
-
-      candidateNameTop.textContent = studentName;
-
-      const duration = parseInt(timeSelect.value, 10);
-      const questionCount = duration === 30 ? 75 : 150;
-
-      questions = generateQuestions(questionCount);
-      userAnswers = new Array(questions.length).fill(null);
-
-      timeLeft = duration * 60; // seconds
-      startTime = new Date();
-
-      welcomeScreen.style.display = "none";
-      resultScreen.style.display = "none";
-      testArea.style.display = "block";
-
-      updateQuestionCounter();
-      updateAnsweredInfo();
-      startTimer();
-      displayQuestion();
-    }
-
-    // Timer
-    function startTimer() {
-      updateTimerDisplay();
-
-      timer = setInterval(() => {
-        timeLeft--;
-        updateTimerDisplay();
-
-        if (timeLeft <= 0) {
-          clearInterval(timer);
-          alert("Time is up! Your test will be submitted automatically.");
-          submitTest();
-        }
-      }, 1000);
-    }
-
-    function updateTimerDisplay() {
-      const minutes = Math.floor(timeLeft / 60);
-      const seconds = timeLeft % 60;
-      timerElement.textContent =
-        String(minutes).padStart(2, "0") +
-        ":" +
-        String(seconds).padStart(2, "0");
-
-      if (timeLeft <= 300) {
-        timerElement.style.color = "#e53935";
-        timerDot.style.backgroundColor = "#e53935";
-      } else {
-        timerElement.style.color = "#003366";
-        timerDot.style.backgroundColor = "#22c55e";
-      }
-    }
-
-    // Display question
-    function displayQuestion() {
-      const q = questions[currentQuestion];
-      questionText.textContent = q.question;
-
-      optionsContainer.innerHTML = "";
-      q.options.forEach((opt, index) => {
-        const optionDiv = document.createElement("div");
-        optionDiv.className = "option-item";
-        if (userAnswers[currentQuestion] === index) {
-          optionDiv.classList.add("selected");
-        }
-
-        optionDiv.innerHTML = `
-          <input class="option-input" type="radio" name="option" id="opt${index}" value="${index}" />
-          <div class="option-badge">${String.fromCharCode(65 + index)}</div>
-          <div>${opt}</div>
-        `;
-
-        optionDiv.addEventListener("click", () => selectOption(index));
-        optionsContainer.appendChild(optionDiv);
-      });
-
-      updateQuestionCounter();
-      updateProgressBar();
-      updateAnsweredInfo();
-
-      prevBtn.disabled = currentQuestion === 0;
-      nextBtn.disabled = currentQuestion === questions.length - 1;
-    }
-
-    function updateQuestionCounter() {
-      questionCounter.textContent = `Question ${currentQuestion + 1} of ${
-        questions.length
-      }`;
-    }
-
-    function updateProgressBar() {
-      const progress = ((currentQuestion + 1) / questions.length) * 100;
-      progressBar.style.width = `${progress}%`;
-    }
-
-    function updateAnsweredInfo() {
-      const answeredCount = userAnswers.filter((a) => a !== null).length;
-      answeredInfo.textContent = `${answeredCount} of ${questions.length} answered`;
-    }
-
-    // Select option
-    function selectOption(index) {
-      userAnswers[currentQuestion] = index;
-      const options = optionsContainer.querySelectorAll(".option-item");
-      options.forEach((opt) => opt.classList.remove("selected"));
-      options[index].classList.add("selected");
-      updateAnsweredInfo();
-    }
-
-    // Navigation
-    prevBtn.addEventListener("click", () => {
-      if (currentQuestion > 0) {
-        currentQuestion--;
-        displayQuestion();
-      }
-    });
-
-    nextBtn.addEventListener("click", () => {
-      if (currentQuestion < questions.length - 1) {
-        currentQuestion++;
-        displayQuestion();
-      }
-    });
-
-    submitBtn.addEventListener("click", () => {
-      const confirmSubmit = confirm(
-        "Are you sure you want to submit your test now?"
-      );
-      if (confirmSubmit) {
-        submitTest();
-      }
-    });
-
-    function submitTest() {
-      clearInterval(timer);
-      endTime = new Date();
-
-      let correctCount = 0;
-      userAnswers.forEach((answer, i) => {
-        if (answer === questions[i].correct) {
-          correctCount++;
-        }
-      });
-
-      const scorePercent = (correctCount / questions.length) * 100;
-
-      const diffSeconds = Math.floor((endTime - startTime) / 1000);
-      const minutesTaken = Math.floor(diffSeconds / 60);
-      const secondsTaken = diffSeconds % 60;
-
-      testArea.style.display = "none";
-      resultScreen.style.display = "block";
-
-      resultName.textContent = studentNameInput.value.trim();
-      totalQuestions.textContent = questions.length;
-      correctAnswers.textContent = correctCount;
-      timeTaken.textContent = `${minutesTaken}m ${secondsTaken}s`;
-
-      animateScore(Math.round(scorePercent));
-      setProficiency(scorePercent);
-    }
-
-    const reviewScreen = document.getElementById('reviewScreen');
-    const reviewList = document.getElementById('reviewList');
-    const reviewBtn = document.getElementById('reviewBtn');
-    const backToResultBtn = document.getElementById('backToResultBtn');
-
-    reviewBtn.addEventListener("click", () => {
-        resultScreen.style.display = "none";
-        reviewScreen.style.display = "block";
-        generateReview();
-    });
-
-    function generateReview() {
-        reviewList.innerHTML = ""; // clear previous items
-
-        let anyWrong = false;
-
-        for (let i = 0; i < questions.length; i++) {
-            if (userAnswers[i] !== questions[i].correct) {
-                anyWrong = true;
-
-                const wrongDiv = document.createElement("div");
-                wrongDiv.style.marginBottom = "20px";
-                wrongDiv.style.padding = "15px";
-                wrongDiv.style.border = "1px solid #ddd";
-                wrongDiv.style.borderRadius = "8px";
-                wrongDiv.style.background = "#f9fafb";
-
-                wrongDiv.innerHTML = `
-                    <p><strong>Question ${i + 1}:</strong> ${questions[i].question}</p>
-
-                    <p style="margin-top:8px;">
-                        <strong>Your Answer:</strong>
-                        <span style="color:#e63946;">
-                            ${questions[i].options[userAnswers[i]] || "No answer"}
-                        </span>
-                    </p>
-
-                    <p style="margin-top:5px;">
-                        <strong>Correct Answer:</strong>
-                        <span style="color:#2a9d8f;">
-                            ${questions[i].options[questions[i].correct]}
-                        </span>
-                    </p>
-                `;
-
-                reviewList.appendChild(wrongDiv);
-            }
-        }
-
-        if (!anyWrong) {
-            reviewList.innerHTML =
-                "<p style='text-align:center; font-size:16px;'>You got everything correct 🎉</p>";
-        }
-    }
-
-    backToResultBtn.addEventListener("click", () => {
-        reviewScreen.style.display = "none";
-        resultScreen.style.display = "block";
-    });
-
-
-    function animateScore(target) {
-      let current = 0;
-      const interval = setInterval(() => {
-        current++;
-        scoreDisplay.textContent = current + "%";
-        if (current >= target) {
-          clearInterval(interval);
-        }
-      }, 20);
-    }
-
-    function setProficiency(score) {
-      let label = "";
-      let bg = "";
-      let color = "";
-
-      if (score >= 85) {
-        label = "Highly Proficient";
-        bg = "#dcfce7";
-        color = "#166534";
-      } else if (score >= 70) {
-        label = "Proficient";
-        bg = "#e0f2fe";
-        color = "#0369a1";
-      } else if (score >= 60) {
-        label = "Fairly Proficient";
-        bg = "#fef9c3";
-        color = "#854d0e";
-      } else if (score >= 50) {
-        label = "Scarcely Proficient";
-        bg = "#fee2e2";
-        color = "#b91c1c";
-      } else {
-        label = "Not Proficient";
-        bg = "#fee2e2";
-        color = "#b91c1c";
-      }
-
-      proficiencyTag.innerHTML = `<span class="tag" style="background:${bg}; color:${color};">${label}</span>`;
-    }
-
-    restartBtn.addEventListener("click", () => {
-      currentQuestion = 0;
-      userAnswers = [];
-      studentNameInput.value = "";
-      timeSelect.value = "60";
-      timerElement.textContent = "00:00";
-      candidateNameTop.textContent = "—";
-      timerElement.style.color = "#003366";
-      timerDot.style.backgroundColor = "#22c55e";
-
-      resultScreen.style.display = "none";
-      welcomeScreen.style.display = "block";
-    });
-        </script>
+        
+        <script src="questions.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
+
